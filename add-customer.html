@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Manager</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Add Customer</h1>
+        <a href="index.html" class="btn btn-add"><i class='bx bx-arrow-back'></i> Home</a>
+    </header>
+    <main>
+        <ul class="warning"></ul>
+        <form action="" id="addcustomer">
+                <div class="input-group">
+                    <label for="customerName">Customer Name</label>
+                    <input type="text" name="" id="customerName" placeholder="Enter First and Last Name" >
+                </div>
+                <div class="input-group">
+                    <label for="customerEmail">Customer Email</label>
+                    <input type="email" name="" id="customerEmail" placeholder="Enter email address">
+                </div>
+                <div class="input-group">
+                    <label for="">Gender</label>
+                    <div class="radio-group">
+                        <label for="male">Male</label> <input type="radio" name="gender" id="male" value="male" checked>
+                        <label for="female">Female</label> <input type="radio" name="gender" id="female" value="female">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="profile-pic">Profile Picture</label>
+                    <input type="url" name="" id="profile-pic" placeholder="Enter a valid image url">
+                </div>
+                <button type="submit"gd>Save</button>
+        </form>
+        
+    </main>
+    <script src="./assets/js/add.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+:root{
+    --gray: #BFBDC1;
+    --dim-gray: #6D6A75;
+    --black-coffee: #37323E;
+    --gold-metallic: #DEB841;
+    --gamboge: #DE9E36;
+    --danger: #ed2817;
+    --big-font: 24px;
+    --medium-font: 18px;
+    --small-font: 14px;
+
+}
+
+/* CSS RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    display: block;
+}
+
+ul{
+    list-style-type: none;
+}
+
+/* GENERAL CSS */
+
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+    width: 100%;
+    background-color: var(--gray);
+    margin-block: 20px;
+    min-height: 100vh;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gold-metallic);
+    padding: 5px 10px;
+    color: var(--black-coffee);
+    font-weight: 500;
+    font-size: var(--medium-font);
+    border-radius: 8px;
+}
+/*END GENERAL CSS */
+
+/* HEADER CSS */
+
+/* Index Header */
+header{
+    max-width: 100%;   
+}
+
+header > h1 {
+    font-size: var(--big-font);
+    text-align: center;
+    color: var(--gamboge);
+}
+
+header > .btn {
+    margin: 10px auto;
+    width: 50%;
+   
+}
+/* End HEADER CSS*/
+
+/* MAIN CSS */
+main{
+   width: 100%;
+   margin: 10px auto;
+}
+
+main > .customer-list{
+    width: 100%;
+    padding: 5px;
+}
+
+.customer-list > .customer-list-item{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.customer-list-item > .profile-text{
+    width: 70%;
+    display: flex;
+    gap: 5px;
+}
+
+.profile-text > a {
+    color: var(--black-coffee);
+    margin-top: 10px;
+}
+
+.profile-text > .action-group{
+    display: flex;
+    gap: 5px;
+}
+
+.action-group > .btn{
+    height: 30px;
+    width: 50px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.action-group > .btn.btn-delete{
+    background-color: var(--danger);
+    color: white;
+}
+
+.customer-list-item img{
+    display: block;
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+}
+/* main > .customer-list {
+    display: grid;
+    place-items: center;
+    gap: 20px;
+}
+
+
+
+.customer-list-item {
+     display: flex;
+    gap: 5px;
+    justify-content: center; 
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.customer-link{
+    margin-top: 10px;
+    color: var(--black-coffee);
+}
+
+.customer-list-item > .action-group{
+    display: flex;
+    gap: 5px;
+}
+
+.action-group > .btn{
+    font-size: var(--small-font);
+    padding: 5px 7px;
+} */
+
+/* Form Style */
+.warning{
+    width: fit-content;
+    padding: 10px;
+    margin-left: 20px;
+    font-size: var(--small-font);
+    color: var(--danger);
+    border: 1px solid rgba(237, 40, 23, .4);
+    display: none;
+}
+#addcustomer{
+    width: 100%;
+    display: grid;
+    margin-inline: 10px;
+}
+
+#addcustomer > .input-group{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+   
+}
+
+.input-group > label {
+    color: var(--black-coffee);
+    font-size: var(--medium-font);
+    margin-inline: 10px;
+}
+
+.input-group > input{
+    height: 30px;
+    margin: 5px 10px;
+    font-size: var(--medium-font);
+    width: 90%;
+    outline: none;
+    border: none;
+    color: var(--black-coffee);
+    border-radius: 5px;
+    transition: border-bottom  .5s ease-in;
+}
+
+.input-group > input:is(:focus, :hover){
+    border-bottom: 2px solid var(--gamboge);
+}
+
+.input-group > .radio-group{
+    display: flex;
+    gap: 5px;
+    margin: 5px 10px;
+    font-size: var(--medium-font);
+    color: var(--black-coffee);
+}
+
+#addcustomer > button{
+    width: 90%;
+    margin: 10px;
+    height: 40px;
+    font-size: var(--medium-font);
+    background: var(--gold-metallic);
+    border: 1px solid var(--black-coffee);
+    outline: none;
+    transition: outline .2s ease-in;
+}
+
+#addcustomer > button:hover{
+    outline: 1px solid var(--black-coffee);
+    outline-offset: 2px;
+}

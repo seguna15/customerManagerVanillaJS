@@ -1,0 +1,5 @@
+name
+email
+address
+gender
+profile-pic url
