@@ -49,7 +49,7 @@ form.addEventListener('submit', function(event) {
 function validateFormFields (data){
     const warningArray = [];
     let validMailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    const urlPattern =
+    let urlPattern =
       /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
 
     if(data.customerName === ''){
