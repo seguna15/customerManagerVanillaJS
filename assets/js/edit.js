@@ -1,13 +1,16 @@
 const editcustomer = document.getElementById("editcustomer");
-;
+const warning = document.querySelector(".warning");
+
+
 function getCustomerData(){
     const urlArray = location.href.split('=');
     const id = urlArray[1];
     
-    customers = JSON.parse(localStorage.getItem('customers'));
+    customers = JSON.parse(localStorage.getItem("customers"));
     
     if(customers !== null){
        let customer =  customers.find(customer => customer.customerID === id);
+        document.getElementById("customer-id").value = id;
         document.getElementById('customerName').value = customer.customerName;
         document.getElementById("customerEmail").value = customer.customerEmail;
         if(customer.gender === 'male'){
@@ -23,18 +26,30 @@ function getCustomerData(){
 editcustomer.addEventListener('submit', function(event){
     event.preventDefault();
     const data = {
-        'customerName': document.getElementById('customerName').value,
-        'customerEmail': document.getElementById("customerEmail").value,
-        'gender': document.querySelector('input[name="gender"]:checked').value,
-        'profilePicURL': document.getElementById("profile-pic").value, 
+      customerID: document.getElementById("customer-id").value,
+      customerName: document.getElementById("customerName").value,
+      customerEmail: document.getElementById("customerEmail").value,
+      gender: document.querySelector('input[name="gender"]:checked').value,
+      profilePicURL: document.getElementById("profile-pic").value,
     };
 
+    
+    const customers = JSON.parse(localStorage.getItem('customers'));
     const warnings = validateFormFields(data);
 
+
+
     if (warnings.length > 0){
-        console.table(warnings);
+        warning.style.display = "block";
+        warning.innerHTML = warnings
+          .map((singleWarning) => `<li>${singleWarning}</li>`)
+          .join("");
     }else{
-        console.table(data);
+        const newCustomers = customers.filter( customer  => data.customerID !== customer.customerID);
+        localStorage.removeItem('customers');
+        newCustomers.push(data);
+        localStorage.setItem("customers",JSON.stringify(newCustomers));
+        window.location.href = 'index.html';
     }
 });
 
