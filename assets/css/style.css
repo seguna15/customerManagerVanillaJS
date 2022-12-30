@@ -7,9 +7,11 @@
     --gold-metallic: #DEB841;
     --gamboge: #DE9E36;
     --danger: #ed2817;
+    --web-blue: #7D9BCA;
     --big-font: 24px;
     --medium-font: 18px;
     --small-font: 14px;
+    
 
 }
 
@@ -120,6 +122,7 @@ main > .customer-list{
 .action-group > .btn.btn-delete{
     background-color: var(--danger);
     color: white;
+    border: none;
 }
 
 .customer-list-item img{

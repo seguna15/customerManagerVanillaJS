@@ -47,26 +47,42 @@ form.addEventListener('submit', function(event) {
 });
 
 function validateFormFields (data){
-    const warningArray = [];
-    let validMailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    let urlPattern =
-      /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+  const warningArray = [];
+  let validMailFormat =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  let urlPattern =
+    /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
 
-    if(data.customerName === ''){
-        warningArray.push('Name field cannot be empty');
-    }
-    
-    if(data.customerEmail === ''){
-        warningArray.push("Email Field cannot be empty");
-    }
+  // getting the customer item from our localStorage
+  const customers = JSON.parse(localStorage.getItem("customers"));
 
-    if (validMailFormat.test(data.customerEmail) === false) {
-        warningArray.push("Enter a valid email address");
-    }
+  if (data.customerName === "") {
+    warningArray.push("Name field cannot be empty");
+  }
 
-    if(urlPattern.test(data.profilePicURL) === false){
-        warningArray.push("Enter a valid image url");
-    }
+  if (data.customerEmail === "") {
+    warningArray.push("Email Field cannot be empty");
+  }
 
-    return warningArray;
+  if (validMailFormat.test(data.customerEmail) === false) {
+    warningArray.push("Enter a valid email address");
+  }
+
+  if (urlPattern.test(data.profilePicURL) === false) {
+    warningArray.push("Enter a valid image url");
+  }
+
+  if(customers !== null){
+    customers.filter((customer) => {
+      if (customer.customerEmail === data.customerEmail) {
+        warningArray.push("Email already exists");
+      }
+      if (customer.profilePicURL === data.profilePicURL) {
+        warningArray.push("Profile picture already exits");
+      }
+    });
+  }
+ 
+
+  return warningArray;
 }
